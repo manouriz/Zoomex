@@ -225,3 +225,11 @@ div.warning {
 .header .menu {
 	float: right;
 }
+footer svg.github {
+	vertical-align: sub;
+	fill: #808080;
+}
+footer a.item {
+	vertical-align: sub;
+	text-decoration: none;
+}
