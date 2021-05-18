@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zoomex v2.3</title>
+	<link  rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link  rel="stylesheet" href="/assets/style.css">
+  </head>
+
+  <body>
+		<ul class="container list-unstyled">
+			<li class="header row">
+				<div class="logo small">
+					<img src="images/logo-350.png">
+					v2.3
+					<br>
+					Tracking Participants in Zoom Meeting
+				</div>
+				<div class="menu row">
+					<button id="btnClear" class="btn btn-sm btn-link" title="Clean data stored on browser"><i class="glyphicon glyphicon-erase"></i> Clean Data</button>					
+					<button id="btnUploadList" class="btn btn-sm btn-link" title="Upload Participants list as (.csv) file[name,img]"><i class="glyphicon glyphicon-user"></i> Upload</button>
+					<button id="btnDownloadReport" class="btn btn-sm btn-link" title="Download report (.txt) file"><i class="glyphicon glyphicon-save"></i> Download Report</button>
+					<a id="btnHelp" class="btn btn-sm btn-link" title="Help" href="help.html" target="_blank"><i class="glyphicon glyphicon-info-sign"></i> Help</a>
+					<button id="btnNewTab" class="btn btn-sm btn-link" title="Open in a new tab for a large view"><i class="glyphicon glyphicon-new-window"></i> New Window</button>					
+				</div>				
+			</li>
+			<li class="row">
+				<span class="lbl_parts_data status"></span>
+				<span class="lbl_his_presence status"></span>
+				<span class="lbl_his_cameraoff status"></span>
+				<span class="lbl_his_unmuted status"></span>
+			</li>
+
+
+			<li class="row stats">
+				<div class="col-unmuted col-sm-3 border-right">
+						<div class="text-center highlight">
+								<h3><i class="glyphicon glyphicon-volume-up"></i> Un-muted</h3>
+								<h1 class="count">0</h1>
+						</div>
+						<ul class="tools-container nav navbar-nav">
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+								<ul class="dropdown-menu">
+									<li><a class="btn-tool names" href="#" title="Copy Names"><i class="glyphicon glyphicon-copy"></i>Copy Names</a></li>
+									<li><a class="btn-tool nicknames" href="#" title="Copy Nicknames"><i class="glyphicon glyphicon-copy"></i>Copy Nicknames</a></li>
+									<li><a class="btn-tool names-nicknames" title="Copy Names, Nicknames" href="#"><i class="glyphicon glyphicon-copy"></i>Copy Names, Nicknames</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a class="btn-tool save" href="#" title="Download list of Names, Nicknames"><i class="glyphicon glyphicon-save"></i>Download list of Names, Nicknames</a></li>
+								</ul>
+							</li>
+						</ul>							
+						<div class="items">
+							<div class="alert alert-danger small">
+								Whose microphones are on?<br> Click on 'Start Tracking' button to start tracking!
+							</div>						
+						</div>
+				</div>				
+				<div class="col-nocamera col-sm-3 border-right">
+						<div class="text-center highlight">
+								<h3><i class="glyphicon glyphicon-facetime-video"></i> No Camera</h3>
+								<h1 class="count">0</h1>
+						</div>
+						<ul class="tools-container nav navbar-nav">
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+								<ul class="dropdown-menu">
+									<li><a class="btn-tool names" href="#" title="Copy Names"><i class="glyphicon glyphicon-copy"></i>Copy Names</a></li>
+									<li><a class="btn-tool nicknames" href="#" title="Copy Nicknames"><i class="glyphicon glyphicon-copy"></i>Copy Nicknames</a></li>
+									<li><a class="btn-tool names-nicknames" title="Copy Names, Nicknames" href="#"><i class="glyphicon glyphicon-copy"></i>Copy Names, Nicknames</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a class="btn-tool save" href="#" title="Download list of Names, Nicknames"><i class="glyphicon glyphicon-save"></i>Download list of Names, Nicknames</a></li>
+								</ul>
+							</li>
+						</ul>						
+						<div class="items">
+							<div class="alert alert-info small">
+								Whose cameras are off?<br> Click on 'Start Tracking' button to start tracking!
+							</div>							
+						</div>
+				</div>
+				<div class="col-disconnected col-sm-3 border-right">
+						<div class="text-center highlight">
+								<h3><i class="glyphicon glyphicon-user"></i> Disconnected</h3>
+								<h1 class="count">0</h1>
+						</div>
+						<ul class="tools-container nav navbar-nav">
+							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+								<ul class="dropdown-menu">
+									<li><a class="btn-tool names" href="#" title="Copy Names"><i class="glyphicon glyphicon-copy"></i>Copy Names</a></li>
+									<li><a class="btn-tool nicknames" href="#" title="Copy Nicknames"><i class="glyphicon glyphicon-copy"></i>Copy Nicknames</a></li>
+									<li><a class="btn-tool names-nicknames" title="Copy Names, Nicknames" href="#"><i class="glyphicon glyphicon-copy"></i>Copy Names, Nicknames</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a class="btn-tool save" href="#" title="Download list of Names, Nicknames"><i class="glyphicon glyphicon-save"></i>Download list of Names, Nicknames</a></li>
+								</ul>
+							</li>
+						</ul>					
+						<div class="items">
+							<div class="alert alert-warning small">
+								Whose are connected one time but not available now!								
+							</div>							
+						</div>				
+				</div>
+				<div class="col-absent col-sm-3">
+					<div class="text-center highlight">
+						<h3><i class="glyphicon glyphicon-user"></i> Absents</h3>
+						<h1 class="count">0</h1>
+					</div>
+					<ul class="tools-container nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+							<ul class="dropdown-menu">
+								<li><a class="btn-tool names" href="#" title="Copy Names"><i class="glyphicon glyphicon-copy"></i>Copy Names</a></li>
+								<li><a class="btn-tool nicknames" href="#" title="Copy Nicknames"><i class="glyphicon glyphicon-copy"></i>Copy Nicknames</a></li>
+								<li><a class="btn-tool names-nicknames" title="Copy Names, Nicknames" href="#"><i class="glyphicon glyphicon-copy"></i>Copy Names, Nicknames</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a class="btn-tool save" href="#" title="Download list of Names, Nicknames"><i class="glyphicon glyphicon-save"></i>Download list of Names, Nicknames</a></li>
+							</ul>
+						</li>
+					</ul>						
+					<div class="items">
+						<div class="alert alert-warning small">
+							Whose are still absent?<br> Click on 'Upload' button to start tracking!
+						</div>							
+					</div>
+				</div>				
+			</li>
+			<li class="col-parts-list row border-top">
+				<div class="col-parts col-sm-6">
+					<div class="text-center highlight">
+							<h3><i class="glyphicon glyphicon-user"></i> Participants <span class="small lbl_parts_file"></span></h3>
+							<h1 class="count">0</h1>					
+					</div>
+					<div class="warning lst-changed alert alert-warning small hide">
+						<i class="glyphicon glyphicon-alert"></i> 
+						The nickname of some users has been changed. <br>
+						Please download new list to have an updated version.
+					</div>
+					<ul class="tools-container nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+							<ul class="dropdown-menu">
+								<li><a class="btn-tool names" href="#" title="Copy Names"><i class="glyphicon glyphicon-copy"></i>Copy Names</a></li>
+								<li><a class="btn-tool nicknames" href="#" title="Copy Nicknames"><i class="glyphicon glyphicon-copy"></i>Copy Nicknames</a></li>
+								<li><a class="btn-tool names-nicknames" title="Copy Names, Nicknames" href="#"><i class="glyphicon glyphicon-copy"></i>Copy Names, Nicknames</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a class="btn-tool save" href="#" title="Download list of Names, Nicknames"><i class="glyphicon glyphicon-save"></i>Download list of Names, Nicknames</a></li>
+							</ul>
+						</li>
+					</ul>						
+					<div class="items">
+						<div class="alert alert-warning small">
+							Click on 'Upload' button and upload participants csv list!
+						</div>							
+					</div>					
+				</div>
+				<div class="col-aliens col-sm-6">
+					<div class="text-center highlight">
+						<h3><i class="glyphicon glyphicon-user"></i> Aliens</h3>
+						<h1 class="count">0</h1>
+					</div>
+					<ul class="tools-container nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+							<ul class="dropdown-menu">
+								<li><a class="btn-tool names" href="#" title="Copy Names"><i class="glyphicon glyphicon-copy"></i>Copy Names</a></li>
+								<li><a class="btn-tool nicknames" href="#" title="Copy Nicknames"><i class="glyphicon glyphicon-copy"></i>Copy Nicknames</a></li>
+								<li><a class="btn-tool names-nicknames" title="Copy Names, Nicknames" href="#"><i class="glyphicon glyphicon-copy"></i>Copy Names, Nicknames</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a class="btn-tool save" href="#" title="Download list of Names, Nicknames"><i class="glyphicon glyphicon-save"></i>Download list of Names, Nicknames</a></li>
+							</ul>
+						</li>
+					</ul>						
+					<div class="items">
+						<div class="alert alert-warning small">
+							Whose are not in listed!
+						</div>							
+					</div>
+				</div>				
+			</li>
+		</ul>
+		<footer>
+			<a href="https://www.linkedin.com/in/manouriz/" target="_blank">© Manouriz</a>
+		</footer>
+		<div class="my-alert alert alert-info alert-dismissible">
+			<span></span>
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>	
+		<div class="modal fade" id="modal-add2parts" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Adding new Nickname to a Participant</h4>
+				</div>
+				<div class="modal-body">
+					<h3>Modal Body</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+		</div>
+  </body>
+  <script src="assets/jquery-3.5.1.min.js"></script>	
+  <script src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>	
+  <script src="popup.js"></script>
+</html>
